@@ -19,13 +19,15 @@ model Lead {
   lastName          String
   note              String   @db.Text
   phoneNumber       String
+  email             String   @unique
   title             String
 }
 
 model Company {
-  id        Int     @id @default(autoincrement())
-  address   Address @relation(fields: [addressId], references: [id])
-  addressId Int     @unique
+  id        Int      @id @default(autoincrement())
+  name      String
+  address   Address? @relation(fields: [addressId], references: [id])
+  addressId Int      @unique
   employees Lead[]
 }
 
