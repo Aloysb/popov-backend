@@ -6,31 +6,26 @@ import { PrismaService } from '../prisma.services';
 export class LeadService {
   constructor(private prisma: PrismaService) {}
 
-  create() {
-    return 'This action adds a new lead';
+  create(leadData: Prisma.LeadCreateInput) {
+    this.prisma.lead.create({ data: leadData });
+    return;
   }
 
   findAll() {
     return this.prisma.lead.findMany();
   }
 
-  async findOne(
-    leadWhereUniqueInput: Prisma.LeadWhereUniqueInput,
-  ): Promise<Lead | null> {
-    const lead = this.prisma.lead.findUnique({
-      where: leadWhereUniqueInput,
+  async findOneById(id: Prisma.LeadWhereUniqueInput): Promise<Lead | null> {
+    return this.prisma.lead.findUnique({
+      where: id,
     });
-
-    console.log(await lead);
-
-    return lead;
   }
 
-  update(id: number) {
-    return `This action updates a #${id} lead`;
+  update(id: Prisma.LeadWhereUniqueInput, data: Prisma.LeadUpdateInput) {
+    return this.prisma.lead.update({ where: id, data });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} lead`;
+  remove(id: Prisma.LeadWhereUniqueInput) {
+    return this.prisma.lead.delete({ where: id });
   }
 }

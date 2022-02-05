@@ -8,7 +8,7 @@ import {
   Delete,
   UseInterceptors,
 } from '@nestjs/common';
-import { Lead } from '@prisma/client';
+import { Lead, Prisma } from '@prisma/client';
 import { NotFoundInterceptorInterceptor } from 'src/interceptors/not-found-interceptor.interceptor';
 import { LeadService } from './lead.service';
 
@@ -16,10 +16,10 @@ import { LeadService } from './lead.service';
 export class LeadController {
   constructor(private readonly leadService: LeadService) {}
 
-  // @Post()
-  // create() {
-  //   return this.leadService.create();
-  // }
+  @Post()
+  create(@Body() data: Prisma.LeadCreateInput): void {
+    return this.leadService.create(data);
+  }
 
   @Get()
   async findAll() {
@@ -29,16 +29,16 @@ export class LeadController {
   @Get(':id')
   @UseInterceptors(NotFoundInterceptorInterceptor)
   async findOneById(@Param('id') id: string): Promise<Lead> {
-    return await this.leadService.findOne({ id: Number(id) });
+    return await this.leadService.findOneById({ id: Number(id) });
   }
 
-  // @Patch(':id')
-  // update(@Param('id') id: string) {
-  //   return this.leadService.update(+id);
-  // }
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() data: Prisma.LeadUpdateInput) {
+    return this.leadService.update({ id: Number(id) }, data);
+  }
 
-  // @Delete(':id')
-  // remove(@Param('id') id: string) {
-  //   return this.leadService.remove(+id);
-  // }
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.leadService.remove({ id: Number(id) });
+  }
 }
