@@ -7,9 +7,12 @@ import {
   Param,
   Delete,
   UseInterceptors,
+  ParseIntPipe,
 } from '@nestjs/common';
-import { Lead, Prisma } from '@prisma/client';
+import { Lead } from '@prisma/client';
 import { NotFoundInterceptorInterceptor } from 'src/interceptors/not-found-interceptor.interceptor';
+import { CreateLeadDto } from './dto/create-lead.dto';
+import { UpdateCreateDto } from './dto/update-lead.dto';
 import { LeadService } from './lead.service';
 
 @Controller('lead')
@@ -17,8 +20,8 @@ export class LeadController {
   constructor(private readonly leadService: LeadService) {}
 
   @Post()
-  create(@Body() data: Prisma.LeadCreateInput): void {
-    return this.leadService.create(data);
+  create(@Body() createLeadDto: CreateLeadDto): Promise<Lead> {
+    return this.leadService.create(createLeadDto);
   }
 
   @Get()
@@ -28,17 +31,17 @@ export class LeadController {
 
   @Get(':id')
   @UseInterceptors(NotFoundInterceptorInterceptor)
-  async findOneById(@Param('id') id: string): Promise<Lead> {
-    return await this.leadService.findOneById({ id: Number(id) });
+  async findOneById(@Param('id', ParseIntPipe) id: number): Promise<Lead> {
+    return await this.leadService.findOneById({ id });
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() data: Prisma.LeadUpdateInput) {
-    return this.leadService.update({ id: Number(id) }, data);
+  update(@Param('id', ParseIntPipe) id: number, @Body() data: UpdateCreateDto) {
+    return this.leadService.update({ id }, data);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.leadService.remove({ id: Number(id) });
+  remove(@Param('id', ParseIntPipe) id: number) {
+    return this.leadService.remove({ id });
   }
 }

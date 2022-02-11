@@ -11,4 +11,9 @@ This includes setting up Prisma, database configuration, prisma schemas, migrati
 - Prisma schemas and migration for the database
 - Lead controller/Service
 - CRUD operations on LEAD
+- CRUD operations on COMPANY
+- CRUD operations on address
+- Dtos and validation for LEAD, address, COMPANY
 - 404 interceptors on 'Null' response (find one by ID for example)
+- Add createdAt/updatedAt on each model
+- Review cascading relationship onDelet

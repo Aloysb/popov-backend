@@ -1,73 +1,75 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+# Popov
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+A simple, lean and mobile CRM with Map view abilities.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Popov is born from a need from a family member to have access to lead/customers nearby.
+He wanted a simple, clean interface that gives you access to basic information to nearby client without having to look around within you contact.
 
-## Description
+Popov never had the intention to replace a full CRM, nor has it been designed for public usage.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Popov is also a simple project to implement new technologies I was not familiar with, such as NestJS, Prisma and hone my development skills.
 
-## Installation
+It is also a shopfront project for my portfolio, as well as living laboratory to try out new technologies.
 
-```bash
-$ npm install
-```
+## Technology Stack
 
-## Running the app
+The whole projet is using Typescript.
 
-```bash
-# development
-$ npm run start
+### Tooling
 
-# watch mode
-$ npm run start:dev
+NestJS provide out of the box development server. I am not even sure the bundler behind it: rollup?
+The front end is bundled with ViteJS.
 
-# production mode
-$ npm run start:prod
-```
+API testing has been conducted with Postman and you can find the documentation as well as the collection [here].
 
-## Test
+### Backend
 
-```bash
-# unit tests
-$ npm run test
+Popov is built using NestJS, Prisma, Postgres on the backend.
 
-# e2e tests
-$ npm run test:e2e
+The backend is built using a simple REST API structure - Graph QL has been envisaged (hence the use of Primsa), but didn't really add any value to the current project.
 
-# test coverage
-$ npm run test:cov
-```
+### Frontend
 
-## Support
+JS: TBA - probably a light framework (Svelte, Vue or even simply Alpine)
+CSS: Tailwind
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### Design
 
-## Stay in touch
+A rough wireframe of the project has been realised on XD and is available here.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### Developer Roadmap
 
-## License
+Legend:
 
-Nest is [MIT licensed](LICENSE).
+- [ ] Planned
+- [-] In progress
+- [x] Done
+
+#### Design
+
+- [-] Wireframe
+- [ ] Lo-fi design
+- [ ] Hi-fi design
+- [ ] Prototype
+- [ ] Publication
+- [ ] Written report on decision taken
+
+#### Tooling
+
+- [ ] Add CICD pipeline
+- [ ] Add PWA abilites
+- [ ] Add linter, autoformater
+- [ ] Complete Postman collection
+- [ ] Complete Postman collection
+
+#### Backend
+
+- [-] Provide CRUD endpoints for Leads, address and Company.
+- [ ] Add custom errors with decent information on error status.
+- [ ] Add unit tests for each endpoint.
+- [ ] Report on technologies used
+- [ ] Change 'address' to 'address'
+
+#### Frontend
+
+- [ ] Decide on stack
