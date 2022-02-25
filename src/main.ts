@@ -22,6 +22,6 @@ async function bootstrap() {
   // Use validation pipe to check data passed to API against DTOs
   app.useGlobalPipes(new ValidationPipe());
 
-  await app.listen(3000);
+  await app.listen(process.env.PORT || 8080);
 }
 bootstrap();

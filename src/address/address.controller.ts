@@ -9,7 +9,7 @@ import {
   ParseIntPipe,
   UseInterceptors,
 } from '@nestjs/common';
-import { NotFoundInterceptorInterceptor } from 'src/interceptors/not-found-interceptor.interceptor';
+import { NotFoundInterceptorInterceptor } from '../interceptors/not-found-interceptor.interceptor';
 import { AddressService } from './address.service';
 import { CreateaddressDto } from './dto/create-address.dto';
 import { UpdateaddressDto } from './dto/update-address.dto';
